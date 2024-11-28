@@ -1,0 +1,708 @@
+//* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Estilos de encabezado */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    background: linear-gradient(135deg, #2c3e50, #34495e, #1abc9c); /* Colores oscuros */
+    color: #ecf0f1; /* Color de texto claro */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+    border-bottom: 5px solid #16a085; /* Color de borde más oscuro */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+/* Logo con un toque elegante */
+header .logo img {
+    width: 150px; /* Aumenté el tamaño */
+    height: auto; /* Mantener proporciones */
+    border-radius: 10px; /* Bordes redondeados */
+    transition: transform 0.3s ease;
+}
+
+
+/* Estilos de navegación */
+header nav a {
+    color: #ecf0f1; /* Color de texto claro */
+    text-decoration: none;
+    margin: 0 7px; /* Aumenté el margen para más espacio */
+    font-size: 18px; /* Aumenté el tamaño de la fuente */
+    font-weight: 700; /* Hice la fuente más gruesa */
+    padding: 10px 20px; /* Aumenté el padding */
+    border-radius: 8px; /* Bordes más redondeados */
+    transition: color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    background: rgba(236, 240, 241, 0.1); /* Fondo semi-transparente oscuro */
+    backdrop-filter: blur(5px); /* Efecto de desenfoque */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+header nav a:hover {
+    color: #41d7b9; /* Color de texto al pasar el mouse */
+    background-color: rgba(145, 145, 146, 0.2); /* Fondo más claro al pasar el mouse */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+}
+
+/* Banner principal */
+#banner {
+    background: linear-gradient(135deg, #2c3e50, #34495e); /* Degradado oscuro */
+    text-align: center;
+    padding: 100px 20px;
+    color: #ecf0f1; /* Color de texto claro */
+    position: relative;
+    overflow: hidden;
+    clip-path: ellipse(100% 100% at 50% 0%);
+}
+
+#banner h2 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6); /* Sombra más pronunciada */
+    animation: fadeInDown 2s ease both;
+}
+
+#banner p {
+    font-size: 1.6em;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    line-height: 1.5;
+    animation: fadeInUp 2s ease both;
+}
+
+/* Botón de volver al inicio */
+.to-top {
+    background: linear-gradient(135deg, #16a085, #1abc9c); /* Colores oscuros */
+    position: fixed;
+    bottom: 16px;
+    right: 32px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: #ecf0f1; /* Color de texto claro */
+    text-decoration: none;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    z-index: 9999; /* Asegura que el botón esté por encima de todos los elementos */
+}
+
+.to-top.active {
+    bottom: 32px;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* Efecto hover */
+.to-top:hover {
+    background: linear-gradient(135deg, #1abc9c, #16a085); /* Colores oscuros al pasar el mouse */
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1) translateY(-2px);
+}
+
+/* Animaciones */
+@keyframes fadeInDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounceIn {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+/* Sección de categorías */
+/* Sección 'Nosotros' */
+#nosotros {
+    display: grid; /* Cambié a grid para un diseño más flexible */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Columnas responsivas */
+    gap: 20px;
+    padding: 40px;
+    background-color: #f4f4f4; /* Fondo claro para la sección */
+    border-radius: 10px;
+    max-width: 1200px;
+    margin: 40px auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+}
+
+.column {
+    background-color: #ffffff; /* Fondo blanco para las tarjetas */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra de tarjeta */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+}
+
+.column:hover {
+    transform: translateY(-10px); /* Efecto de elevación al pasar el mouse */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el mouse */
+}
+
+.column h3 {
+    font-size: 1.6em;
+    color: #1abc9c; /* Color de encabezado */
+    border-bottom: 2px solid #1abc9c; /* Borde del encabezado */
+    margin-bottom: 15px;
+}
+
+.column p {
+    font-size: 1em;
+    color: #333333; /* Color de texto oscuro */
+    line-height: 1.5; /* Espaciado de línea más amplio */
+    text-align: justify;
+}
+
+/* Estilo del catálogo */
+.catalog {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.catalog h2 {
+    font-size: 2.2em;
+    color: #ffffff; /* Color de texto blanco */
+    background: linear-gradient(90deg, #148e75, #1ccaa7);
+    padding: 15px 30px;
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+.catalog h2:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo más claro al pasar el mouse */
+}
+
+/* Estilo del cuerpo */
+body {
+    font-family: 'Arial', sans-serif; /* Cambié a Arial para un estilo más limpio */
+    font-size: 16px; /* Aumenté el tamaño de fuente */
+    color: #333333; /* Color de texto oscuro */
+    margin: 0;
+    padding: 0;
+    background-color: #ecf0f1; /* Fondo de página claro */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+#catalogo body {
+    display: flex; /* Cambia a flex para centrar el contenido */
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #2c3e50; /* Fondo oscuro */
+}
+
+.container {
+    display: flex; /* Cambia a flex para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente (opcional) */
+    padding: 20px; /* Espaciado alrededor del carrusel */
+    margin: auto; /* Agrega margen alrededor del contenedor */
+}
+
+.card-wrapper {
+    max-width: 1100px;
+    margin: 5px 250px 15px;
+    padding: 20px 10px;
+    overflow: hidden;
+    display: flex;
+}
+
+.card-wrapper img {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.card-list .card-item {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.card-list .card-item .card-link {
+    user-select: none;
+    display: block;
+    background: #ffffff; /* Fondo oscuro para las tarjetas */
+    padding: 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    transition: 0.2s ease;
+    align-items: center;
+    justify-content: center;
+    color: #000000; /* Color de texto claro */
+}
+
+.card-list .card-item .card-link:active {
+    cursor: grabbing;
+}
+
+.card-list .card-item .card-link:hover {
+    border-color: #1abc9c; /* Color de borde al pasar el mouse */
+    border-width: 3.5px;
+}
+
+.card-list .card-link .card-image {
+    width: 250px;
+    height: 250px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.card-list .card-link .badge {
+    color: #000000; /* Color de texto claro */
+    margin: 16px 0 18px;
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    background-color: #000000; /* Fondo oscuro para las etiquetas */
+    width: fit-content;
+    border-radius: 50px;
+}
+
+.card-list .card-link .badge.precio {
+    color: #5bb319;
+    background: #ebfbe0;
+}
+
+.card-list .card-link .badge.caja {
+    color: #a32fdd;
+    background: #f0e0fb;
+}
+
+.card-list .card-link .badge.botella {
+    color: #16a689;
+    background: #e0fbfa;
+}
+
+.card-list .card-link .badge.bolsa {
+    color: #dd2f2f;
+    background: #f9dfdf;
+}
+
+.card-list .card-link .badge.costal {
+    color: #ffb703;
+    background: #ffefc6;
+}
+
+.card-list .card-link .badge.bolsita {
+    color: #2f83dd;
+    background: #d6e3f1;
+}
+
+.card-list .card-link .badge.bote {
+    color: #dd2fba;
+    background: #ffe3f9;
+}
+
+.card-list .card-link .card-title { /* Corrige "card-tittle" a "card-title" */
+    font-size: 1.19rem;
+    color: #000000; /* Color de texto claro */
+    font-weight: 600;
+}
+
+.swiper-button-prev {
+    margin-left: 150px;
+    color: #ecf0f1; /* Color de los botones de navegación */
+}
+
+.swiper-button-next {
+    margin-right: 150px;
+    color: #ecf0f1; /* Color de los botones de navegación */
+}
+
+.card-list .card-link .card-button {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    margin: 30px 0px 5px;
+    background: none;
+    cursor: pointer;
+    color: #25d366;
+    transition: 0.4s ease;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.card-list .card-link:hover .card-button {
+    color: #fff;
+    background: #25d366;
+}
+
+.card-wrapper .swiper-pagination-bullet {
+    height: 13px;
+    width: 13px;
+    opacity: 0.5;
+    background: #1abc9c;
+}
+
+.card-wrapper .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+.card-wrapper .swiper-slide-button {
+    color: #1abc9c;
+    margin-top: -35px;
+    width: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .card-wrapper {
+        margin: 0 10px 25px;
+    }
+
+    .card-wrapper .swiper-slide-button {
+        display: none;
+    }
+}
+
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    opacity: 0.5;
+    border-radius: 50%; /* Asegúrate de que esto esté presente para que los bullets sean redondeados */
+    margin: 0 5px;
+    transition: opacity 0.3s, background-color 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #ffb703;
+    opacity: 1;
+}
+  
+
+/* Sección de ofertas */
+#ofertas {
+    margin-top: 35px;
+    background: linear-gradient(135deg, #2c3e50, #34495e, #0b6654); /* Degradado con los colores deseados */
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    font-family: 'Arial', sans-serif; /* Tipografía moderna */
+}
+
+#ofertas::before, #ofertas::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: rgba(26, 188, 156, 0.1); /* Color más suave para el efecto de fondo */
+    border-radius: 50%;
+    animation: floating-animation 5s ease-in-out infinite;
+}
+
+#ofertas::before {
+    top: -100px;
+    left: -100px;
+}
+
+#ofertas::after {
+    bottom: -100px;
+    right: -100px;
+}
+
+@keyframes floating-animation {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(30px, 30px); }
+    100% { transform: translate(0, 0); }
+}
+
+#ofertas h3 {
+    font-size: 3.6em;
+    margin-bottom: 20px;
+    color: #ffffff; /* Color blanco para el título */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+    font-weight: bold; /* Más peso para destacar */
+    z-index: 9999;
+}
+
+#ofertas h3:hover {
+    transform: translateY(-5px);
+    color: #1abc9c; /* Cambio de color al pasar el mouse */
+}
+
+#ofertas p {
+    margin: 0;
+    font-size: 27px;
+    color: #000000; /* Color claro para el texto */
+    line-height: 1.8;
+}
+
+#ofertas .oferta {
+    display: inline-block;
+    width: 30%; /* Cambiado a 30% para más ofertas en fila */
+    margin: 20px 1.5%;
+    padding: 30px;
+    background: #eae7e7; /* Fondo blanco para las ofertas */
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#ofertas .oferta:hover {
+    transform: translateY(-5px); /* Efecto de elevación al pasar el mouse */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+#ofertas .oferta img {
+    width: 180px; /* Ajustado para un mejor diseño */
+    height: 180px; /* Ajustado para un mejor diseño */
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+#ofertas .oferta img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+#ofertas .oferta p {
+    font-size: 1.5em; /* Aumentado para mayor visibilidad */
+    color: #e74c3c; /* Color rojo para el precio */
+    line-height: 1.6;
+    margin: 15px 0;
+}
+
+#ofertas h7 {
+    font-size: 21px;
+    color: #333;
+}
+
+#ofertas .oferta p span {
+    color: #16a085; /* Color verde para el texto destacado */
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    #ofertas .oferta {
+        width: 45%; /* Ajustado para pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    #ofertas h3 {
+        font-size: 2.5em;
+    }
+
+    #ofertas p {
+        font-size: 1.2em;
+    }
+
+    #ofertas .oferta img {
+        width: 150px; /* Ajustado para pantallas pequeñas */
+        height: 150px; /* Ajustado para pantallas pequeñas */
+    }
+}
+
+/* Estilos del formulario de newsletter */
+/* Sección de contacto */
+/* Sección de contacto */
+#contacto {
+    padding: 70px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #2c3e50, #34495e, #1abc9c); /* Degradado con los colores deseados */
+    color: #fff;
+    border-top: 10px solid #16a085; /* Color verde */
+    border-bottom: 10px solid #1abc9c; /* Color verde claro */
+    position: relative;
+    overflow: hidden;
+}
+
+#contacto::before, #contacto::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(25, 134, 112, 0.918); /* Color más suave para el efecto de fondo */
+    width: 150px;
+    height: 150px;
+    animation: float 3s infinite alternate;
+}
+
+#contacto::before {
+    top: -40px;
+    left: -40px;
+}
+
+#contacto::after {
+    bottom: -40px;
+    right: -40px;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(20px, 20px); }
+}
+
+#contacto h3 {
+    font-size: 2.8em;
+    margin-bottom: 20px;
+    color: #16a085; /* Color verde */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.437);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#contacto form {
+    display: inline-block;
+    background: #ffffff; /* Fondo blanco para el formulario */
+    border-radius: 12px;
+    padding: 25px 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.507);
+    max-width: 600px;
+    width: 100%;
+    transition: transform 0.3s ease;
+    border-color: #000000;
+}
+
+#contacto input[type="email"] {
+    padding: 14px;
+    margin-right: 10px;
+    width: calc(100% - 130px);
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1.1em;
+    transition: border-color 0.3s ease;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#contacto input[type="email"]:focus {
+    border-color: #16a085; /* Color verde al enfocar */
+    outline: none;
+    box-shadow: 0 0 10px rgba(26, 115, 232, 0.3);
+}
+
+#contacto button {
+    margin-top: 5px;
+    padding: 14px 25px;
+    background: linear-gradient(135deg, #16a085, #1abc9c); /* Degradado con los colores deseados */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #f7f7f7;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+#contacto button:hover {
+    background: linear-gradient(135deg, #1abc9c, #16a085); /* Cambio de degradado al pasar el mouse */
+    transform: translateY(-1.5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.map {
+    height: 200px; /* Altura del mapa */
+    width: 100%; /* Ancho del mapa */
+    border-radius: 12px; /* Bordes redondeados para el mapa */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-top: 25px;
+    z-index: 999;
+    position: relative;
+}
+
+/* Pie de página */
+footer {
+    background: linear-gradient(130deg, #333, #3a3a3a);
+    color: #ffffff;
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+
+footer::before {
+    top: -30px;
+    left: -30px;
+}
+
+footer::after {
+    bottom: -30px;
+    right: -30px;
+}
+
+footer p {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+}
+
+footer .social-media {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+footer .social-media a {
+    color: #1fcfac;
+    text-decoration: none;
+    font-size: 1.8em;
+    transition: color 0.3s ease, transform 0.3s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+footer .social-media a:hover {
+    color: #1f977f;
+    transform: scale(1.4) rotate(-3deg);
+}
+
